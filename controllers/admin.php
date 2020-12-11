@@ -8,12 +8,10 @@ Class Admin extends controller {
         //echo "method index in controllers";
         $this->view('admin/index');
     }
-    function user($age,$mobile,$city){
-        echo '<br>';
-        echo "age is = ".$age.'<br>';
-        echo "mobile is = ".$mobile.'<br>';
-        echo "city is = ".$city.'<br>';
-
+    function user($mobile){
+        $info= $this->model->infouser($mobile);
+        $data=array('info'=>$info);
+        $this->view('admin/index',$data);
     }
 
 }
